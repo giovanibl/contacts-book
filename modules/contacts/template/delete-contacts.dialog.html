@@ -1,0 +1,12 @@
+<div class="dialog delete-contact">
+    <h1 class="contact-form-tile">{{dialogTitle}}</h1>
+
+    <form name="contactForm" class="contact-form delete-contact">
+        <label for="name">Deseja realmente excluir o contato?</label>
+    </form>
+
+	<div class="action-bar">
+		<button class="btn-cancel" ng-click="closeThisDialog()">Cancelar</button>
+		<button class="btn-confirm" ng-click="deleteContact(contact)">Excluir</button>
+	</div>
+</div>

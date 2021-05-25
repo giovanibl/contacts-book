@@ -1,0 +1,67 @@
+<html ng-app="contactsBook">
+<head>
+	<meta charset="UTF-8">
+	<title>Agenda de Contatos</title>
+	<link rel="stylesheet" type="text/css" href="css/contacts/app-contacts-index.css">
+    <link rel="stylesheet" type="text/css" href="css/contacts/directives/ui-letter-marker.css">
+	<link rel="stylesheet" type="text/css" href="libs/ngDialog/ngDialog.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/ngDialog/ngDialog-theme-default.min.css">
+
+	<script src="libs/angular/angular.js"></script>
+	<script src="libs/ngDialog/ngDialog.js"></script>
+
+	<script src="modules/contacts/js/contacts.app.js"></script>
+	<script src="modules/contacts/js/controller/contacts.controller.js"></script>
+    <script src="modules/contacts/js/directives/ui-letter-marker.directive.js"></script>
+    <script src="modules/contacts/js/directives/ui-phone-mask.directive.js"></script>
+</head>
+<body bgcolor="#f8f9fd" ng-controller="contactsBookCtrl">
+	<div class="container">
+        <div class="top-bar">
+            <img src="images/logo/ic-logo.png" alt="logo"/>
+            <button id="btn-create" class="top" ng-click="OpenCreateEditContactDialog()" ng-show="contactsList.length > 0">
+                <span class="btn-icon"></span>
+                Criar contato
+            </button>
+            
+            <div id="search-box">
+                <input type="text" ng-model="searchContact" placeholder="Buscar..."/>
+                <span class="search-icon"></span>
+            </div>
+        </div>
+
+        <div class="empty-list" ng-show="contactsList.length === 0">
+            <img src="images/contacts/ic-book.svg" alt="book icon">
+            <p>Nenhum contato foi criado ainda.</p>
+            <button id="btn-create" ng-click="OpenCreateEditContactDialog()">
+                <span class="btn-icon"></span>
+                Criar contato
+            </button>
+        </div>
+
+        <div class="full-list" ng-show="contactsList.length > 0">
+            <table class="contacts-table">
+                <tr>
+                    <th></th>
+                    <th>Contatos</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th></th>
+                </tr>
+                <tr class="contacts-list" id="contact-{{contact.id}}" ng-repeat="contact in contactsList | filter:searchContact | orderBy:'name'">
+                    <td class="td-letter-marker">
+                        <ui-letter-marker letter="contact.name" selectedcolor="contact.color"></ui-letter-marker>
+                    </td>
+                    <td class="td-name">{{contact.name}}</td>
+                    <td class="td-email">{{contact.email}}</td>
+                    <td class="td-phone"> {{contact.phone}}</td>
+                    <td class="td-action">
+                        <button class="edit" ng-click="OpenCreateEditContactDialog(contact)"></button>
+                        <button class="delete" ng-click="OpenDeleteContactDialog(contact)"></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+	</div>
+</body>
+</html>

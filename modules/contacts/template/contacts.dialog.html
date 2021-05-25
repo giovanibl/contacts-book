@@ -1,0 +1,21 @@
+<div class="dialog create-contact">
+    <h1 class="contact-form-tile">{{dialogTitle}}</h1>
+
+    <form name="contactForm" class="contact-form">
+		<input type="text" ng-model="contact.id" ng-hide="true" name="id"/>
+
+        <label for="name">Nome</label>
+        <input type="text" ng-model="contact.name" name="name"/>
+
+        <label for="email">E-mail</label>
+        <input type="text" ng-model="contact.email" name="email"/>
+
+        <label for="phone">Telefone</label>
+        <input type="text" ng-model="contact.phone" name="phone" ui-phone-mask/>
+    </form>
+
+	<div class="action-bar">
+		<button class="btn-cancel" ng-click="closeThisDialog()">Cancelar</button>
+		<button class="btn-confirm" ng-click="saveContact(contact)" ng-disabled="isFormValid(contact)">Salvar</button>
+	</div>
+</div>

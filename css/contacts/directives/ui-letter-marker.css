@@ -1,0 +1,10 @@
+.letter-marker {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    color: #ffffff;
+    text-align: center;
+    line-height: 24px;
+    font-size: 15px;
+    font-family: 'roboto-light';
+}
