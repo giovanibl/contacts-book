@@ -10,7 +10,7 @@ Para esse teste usei o framework Angular. Como a ideia era ser ágil na constru�
 
 ## Setup
 
-Para rodar esta SPA é bem simples, basta ter um server local rodando e colocar a pasta do projeto dentro dele. O ```index.html``` já é a página principal do projeto.
+Para rodar esta SPA é bem simples, basta ter um server local e colocar a pasta do projeto dentro dele. Em seguida, é necessário ir até a pasta raiz do projeto, subir o servidor e acessar o endereço correspondente. O ```index.html``` já é a página principal do projeto.
 
 Caso não tenha um servidor, sugiro o [Live server](https://www.npmjs.com/package/live-server), por ser simples e prático.
 
